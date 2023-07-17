@@ -1,0 +1,6 @@
+.
+├── core.sh
+└── logs
+    └── tree.txt
+
+1 directory, 2 files

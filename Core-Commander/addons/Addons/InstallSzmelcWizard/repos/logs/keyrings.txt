@@ -1,0 +1,14 @@
+debian-archive-bullseye-automatic.gpg
+debian-archive-bullseye-security-automatic.gpg
+debian-archive-bullseye-stable.gpg
+debian-archive-buster-automatic.gpg
+debian-archive-buster-security-automatic.gpg
+debian-archive-buster-stable.gpg
+debian-archive-keyring.gpg
+debian-archive-removed-keys.gpg
+debian-archive-stretch-automatic.gpg
+debian-archive-stretch-security-automatic.gpg
+debian-archive-stretch-stable.gpg
+polychromatic.gpg
+prebuilt-mpr-archive-keyring.gpg
+vscodium-archive-keyring.gpg

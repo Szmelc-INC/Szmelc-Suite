@@ -1,0 +1,24 @@
+#this file is empty by default.  Sources are under /etc/apt/souces.list.d
+# Debian Stable.
+deb http://deb.debian.org/debian bullseye main contrib non-free
+deb http://security.debian.org/debian-security bullseye-security main contrib non-free
+#deb-src http://deb.debian.org/debian bullseye main contrib non-free 
+
+#bullseye backports
+#deb http://deb.debian.org/debian bullseye-backports main contrib non-free
+# Debian bullseye Updates
+deb http://deb.debian.org/debian bullseye-updates main contrib non-free
+deb http://download.opensuse.org/repositories/hardware:/razer/Debian_11/ /
+# MX Community Main and Test Repos
+deb http://nl.mxrepo.com/mx/repo/ bullseye main non-free
+#deb http://nl.mxrepo.com/mx/testrepo/ bullseye test
+
+#ahs hardware stack repo
+#deb http://nl.mxrepo.com/mx/repo/ bullseye ahs
+deb [signed-by=/usr/share/keyrings/polychromatic.gpg] http://ppa.launchpad.net/polychromatic/stable/ubuntu focal main
+deb [signed-by=/usr/share/keyrings/prebuilt-mpr-archive-keyring.gpg] https://proget.makedeb.org prebuilt-mpr bullseye
+deb http://repository.spotify.com stable non-free
+### THIS FILE IS AUTOMATICALLY CONFIGURED ###
+# You may comment out this entry, but any other modifications may be lost.
+deb [arch=amd64] https://repo.vivaldi.com/stable/deb/ stable main
+deb [ signed-by=/usr/share/keyrings/vscodium-archive-keyring.gpg ] https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/debs vscodium main
