@@ -1,2 +1,0 @@
-# Szmelc Wizard
-## Repositories & Keyrings
