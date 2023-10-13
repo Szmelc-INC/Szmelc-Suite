@@ -4,7 +4,16 @@
 ## Disclaimer
 > Entire Suite is designed to be portable, easily modifiable and easily removable. \
 > It means everything ends up in a single, easy to find and access directory `~/szmelc` \
-> Which is inside user's `$HOME` directory as suite is made to be user specific.
+> Which is inside user's `$HOME` directory as suite is made to be user specific. \
+> Only change to pre-existing files is a single line appended to `~/.bashrc` \
+> Entire suite can be removed with single command: `rm -rf ~/szmelc`
+
+### One command to rule them all:
+> To get help with szmelc, open new terminal and execute: `szmelc`
+
+![image](https://github.com/GNU-Szmelc/Szmelc-Suite/assets/95081005/395f2fab-1ff3-488f-abca-d2cb4eff01cd)
+### `bar`
+![image](https://github.com/GNU-Szmelc/Szmelc-Suite/assets/95081005/7ed515bb-a337-44fc-a713-fc14287a5626)
 
 ## Installation:
 1. Automatic
@@ -13,6 +22,7 @@
 curl https://raw.githubusercontent.com/GNU-Szmelc/Szmelc-Suite/main/install.sh > install.sh
 bash install.sh
 ```
+  
 2. Manual
 > 1. Create `szmelc` directory inside `$HOME` then cd into it with \
 `cd ~ && mkdir ~/szmelc && cd ~/szmelc`
@@ -23,10 +33,3 @@ bash install.sh
 `echo "source ~/szmelc/szmelcrc" >> ~/.bashrc`
 > 5. Reload changes with \
 `source ~/.bashrc`
-
-### One command to rule them all:
-> To get help with szmelc, open new terminal and execute: `szmelc`
-
-![image](https://github.com/GNU-Szmelc/Szmelc-Suite/assets/95081005/395f2fab-1ff3-488f-abca-d2cb4eff01cd)
-### `bar`
-![image](https://github.com/GNU-Szmelc/Szmelc-Suite/assets/95081005/7ed515bb-a337-44fc-a713-fc14287a5626)
