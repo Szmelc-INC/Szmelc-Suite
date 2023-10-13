@@ -1,0 +1,62 @@
+#!/bin/bash
+
+# Define the directory to search for document files
+DIR="$HOME/szmelc/doc"
+
+# Define the document file extensions to look for
+EXTENSIONS=("txt" "md" "docx")
+
+# Function to list all document files under the specified directory
+list_files() {
+    local files=()
+    for ext in "${EXTENSIONS[@]}"; do
+        while IFS= read -r -d $'\0' file; do
+            # Extract only the filename and extension
+            filename=$(basename "$file")
+            files+=("$filename")
+        done < <(find "$DIR" -type f -name "*.$ext" -print0 2>/dev/null)
+    done
+    echo "${files[@]}"
+}
+
+# Main loop to display the interactive menu
+while true; do
+    # Get the list of document files
+    files=( $(list_files) )
+
+    # Check if there are any document files to display
+    if [ ${#files[@]} -eq 0 ]; then
+        dialog --title "Information" --msgbox "No document files found in $DIR" 6 40
+        exit 1
+    fi
+
+    # Create a dialog menu options string
+    menu_options=()
+    for file in "${files[@]}"; do
+        menu_options+=("$file" "")
+    done
+    menu_options+=("Exit" "")
+
+    # Display the interactive menu using dialog
+    file=$(dialog --title "Read a file" --menu "Choose one" 15 40 7 "${menu_options[@]}" 3>&1 1>&2 2>&3 3>&-)
+
+    # Check the user's selection
+    case $file in
+        *.txt|*.md|*.docx)
+            # Display the content of the selected file using dialog
+            content=$(cat "$DIR/$file")
+            dialog --title "$file" --msgbox "$content" 20 60
+            ;;
+        "Exit")
+            # Exit the script
+            exit 0
+            ;;
+        "")
+            # User pressed Cancel or closed the dialog window
+            exit 0
+            ;;
+        *)
+            dialog --title "Error" --msgbox "Invalid option $file" 6 40
+            ;;
+    esac
+done

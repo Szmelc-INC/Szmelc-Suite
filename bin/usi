@@ -1,0 +1,73 @@
+#!/bin/bash
+# Universal Script Interpreter
+# Usage: usi <filename>
+
+file="$1"
+
+if [[ ! -f "$file" ]]; then
+    echo "File not found: $file"
+    exit 1
+fi
+
+# Define supported extensions and their corresponding interpreters/compilers
+case "$file" in
+    *.sh)
+        interpreter="bash"
+        ;;
+    *.py)
+        interpreter="python3"
+        ;;
+    *.rb)
+        interpreter="ruby"
+        ;;
+    *.pl)
+        interpreter="perl"
+        ;;
+    *.js)
+        interpreter="node"
+        ;;
+    *.c)
+        compiler="gcc"
+        ;;
+    *.cpp)
+        compiler="g++"
+        ;;
+    *.go)
+        compiler="go"
+        ;;
+    *.java)
+        compiler="javac"
+        ;;
+    *)
+        echo "Unsupported file type"
+        exit 1
+        ;;
+esac
+
+if [ -n "$compiler" ]; then
+    if ! command -v "$compiler" &> /dev/null; then
+        echo "$compiler is not installed. Please install it to compile and run this script."
+        exit 1
+    fi
+    # Compile the program if it's a C, C++, Go, or Java file
+    "$compiler" "$file"
+    if [ $? -eq 0 ]; then
+        # Execution after successful compilation
+        if [ "$compiler" == "java" ]; then
+            # For Java, run the class file, assuming the class name matches the file name
+            java "$(basename "$file" .java)"
+        else
+            "./a.out" # Execute the compiled binary
+        fi
+    else
+        echo "Compilation failed."
+        exit 1
+    fi
+else
+    # Execute the script with the determined interpreter
+    if ! command -v "$interpreter" &> /dev/null; then
+        echo "$interpreter is not installed. Please install it to run this script."
+        exit 1
+    fi
+    "$interpreter" "$file" "${@:2}"
+fi

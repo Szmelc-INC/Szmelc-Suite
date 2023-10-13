@@ -1,0 +1,57 @@
+#!/bin/bash
+# GNU Dialog based executable launcher
+# .core tools
+
+directory="$HOME/szmelc/exec"
+
+# Check if the directory exists
+if [ ! -d "$directory" ]; then
+    echo "Directory $directory does not exist."
+    exit 1
+fi
+
+# Create an array of executables in the directory
+exec_files=("$directory"/*)
+
+# Filter only the files that match your criteria
+filtered_files=()
+for file in "${exec_files[@]}"; do
+    if [[ "$file" == *.AppImage || "$file" == *.desktop || "$file" == *.deb || "$file" == *.jar ]]; then
+        filtered_files+=("$file")
+    fi
+done
+
+# Check if there are any executable files
+if [ ${#filtered_files[@]} -eq 0 ]; then
+    echo "No executable files found in $directory."
+    exit 1
+fi
+
+# Prepare dialog command to create the menu
+dialog_cmd="dialog --menu 'Select an executable to run:' 20 50 15"
+
+# Add menu items based on the executable files
+for exec_file in "${filtered_files[@]}"; do
+    dialog_cmd="$dialog_cmd '$(basename "$exec_file")' ''"
+done
+
+# Execute dialog and capture the selected executable
+selected_exec=$(eval "$dialog_cmd" 2>&1 >/dev/tty)
+
+# Check if a selection was made
+if [ -n "$selected_exec" ]; then
+    cd $directory
+    if [[ "$selected_exec" == *.AppImage ]]; then
+        ./"$selected_exec"
+    elif [[ "$selected_exec" == *.desktop ]]; then
+        gtk-launch "$(basename "$selected_exec" .desktop)"
+    elif [[ "$selected_exec" == *.deb ]]; then
+        gnome-software --install="$selected_exec"
+    elif [[ "$selected_exec" == *.jar ]]; then
+        java -jar "$selected_exec"
+    else
+        echo "Unknown file type."
+    fi
+else
+    echo "No selection made."
+fi

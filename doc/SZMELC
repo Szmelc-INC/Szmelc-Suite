@@ -1,0 +1,20 @@
+[33m ____                    _        ____        _ _       [0m
+[33m/ ___|_____ __ ___   ___| | ___  / ___| _   _(_) |_ ___ [0m
+[33m\___ \_  / '_ ` _ \ / _ \ |/ __| \___ \| | | | | __/ _ \[0m
+[33m ___) / /| | | | | |  __/ | (__   ___) | |_| | | ||  __/[0m
+[33m|____/___|_| |_| |_|\___|_|\___| |____/ \__,_|_|\__\___|[0m
+
+## Commands:
+- [33mszmelc[0m ~ (Display this README document)
+- [33mrgxkill[0m ~ (RegEx process killer)
+- [33mapprun[0m ~ (Run portables like AppImage easily)
+- [33mxloop[0m ~ (Simple command loop utility. Run xloop --help for more)
+- [33mwelp[0m ~ ("Well Help" Read more about utilities.)
+- [33msxdlp[0m ~ (Szmelc YouTube (yt-dlp) client)
+- [33mocrv[0m ~ (Optical Character Recognition)
+- [33mxttx[0m ~ (TTY Switch)
+- [33mbashton[0m ~ (Bash & Python3 interpreter)
+- [33musi[0m ~ (Universal Szmelc Interpreter)
+
+## More
+- To use [33mapprun[0m, paste your executables into [36mexec[0m folder

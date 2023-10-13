@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# BASHRC CUSTOMS by Szmelc.INC
+# EXAMPLE output
+#╔====================================╗
+#║ SilverX | [14:16:14] | /dev/pts/10 ║
+#╚====================================╝
+# Append: `clear && cat bar | lolcat` to `~/szmelc/szmelcrc`
+
+# Clear the console
+clear
+
+# Get the current user's username
+USER=$(whoami)
+
+# Get the current date and time in the desired format
+Datetime=$(date +"%H:%M:%S")
+
+# Get the current TTY/PTY
+TTY=$(tty)
+
+# Calculate the length of the text in the box
+text_length=$((2 + ${#USER} + 3 + ${#Datetime} + 3 + ${#TTY} + 2))
+
+# Calculate the number of characters for the top and bottom border
+border_length=$((text_length))
+
+# Create the top border line
+top_border=$(printf '=%.0s' $(seq 1 $border_length))
+
+# Create the middle line with user, date/time, and TTY/PTY
+middle_line="$USER | [$Datetime] | $TTY"
+
+# Create the bottom border line
+bottom_border=$(printf '=%.0s' $(seq 1 $border_length))
+
+# Display the box
+echo "╔${top_border}╗"
+echo "║ $middle_line ║"
+echo "╚${bottom_border}╝"
