@@ -4,6 +4,9 @@
 
 clear && echo " Szmelc Suite Install Script " && sleep 1
 
+# Make sure pip is installed, if not, install it.
+sudo apt install python3-pip
+
 # Install required dependencies without prompts
 pip install google-api-python-client pytesseract pyperclip pandas --break-system-packages
 sleep 1 && clear && echo "Script will install some dependencies with APT"
