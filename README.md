@@ -1,5 +1,5 @@
 # Szmelc Suite
-> Latest szmelc in a "portable" suite.
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&duration=1500&pause=1500&color=4AF7ADD6&multiline=true&random=false&width=450&height=55&lines=%5BSzmelc+Suite%5D;Latest+szmelc+in+a+portable+suite.)](https://git.io/typing-svg)
 
 ## Disclaimer
 > Entire Suite is designed to be portable, easily modifiable and easily removable. \
