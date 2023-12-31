@@ -1,8 +1,0 @@
-menu_title: OCR-Panel-[v1]
-options:
-  - name: Entire_Screen
-    command: sleep 3 && xfce4-screenshooter -f -s "$HOME/.core/bin/ocr/img/_$(date +%Y-%m-%d_%H-%M-%S).png"
-  - name: Select_Region
-    command: sleep 3 && xfce4-screenshooter -r -s "$HOME/.core/bin/ocr/img/_$(date +%Y-%m-%d_%H-%M-%S).png"
-  - name: Active_Window
-    command: sleep 3 && xfce4-screenshooter -w -s "$HOME/.core/bin/ocr/img/_$(date +%Y-%m-%d_%H-%M-%S).png"
